@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.route{
+  color: #000;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.route:hover{
+  color: #001BFF;
+}

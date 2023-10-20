@@ -1,0 +1,11 @@
+nav {
+  padding: 5px 0;
+  background-color: #fff;
+  color: #001BFF;
+  width: 50%;
+  margin: auto;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  font-weight: 900;
+}
