@@ -1,21 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const PC = require("../../models/pc"); 
+const PC = require("../../models/pc");
+const uploadPC = require("./pcUpload");
 
-
-async function uploadPC(req, res) {
-  
-}
-
-
-
-router.post("/api/uploadPC", async (req, res) => {
-  const {name, processor, videoCard, ram } = req.body;
+async function create(req, res) {
+  const { name, processor, videoCard, ram } = req.body;
   const userId = req.user._id;
 
-
   const newPC = new PC({
-    image: req.files, 
+    image: req.files,
     name,
     processor,
     videoCard,
@@ -24,14 +15,15 @@ router.post("/api/uploadPC", async (req, res) => {
   });
 
   try {
-
     const savedPC = await newPC.save();
     res.json(savedPC);
   } catch (error) {
-
     console.error("Error saving PC data:", error);
     res.status(500).json({ error: "Failed to save PC data" });
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+  create,
+  uploadPC
+};

@@ -22,6 +22,7 @@ const pcSchema = new Schema(
     ram: {
       type: Number,
       reuired: true,
+      min: 1,
     },
     user: {
       type: Schema.Types.ObjectId,
