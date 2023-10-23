@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const pcSchema = new Schema(
+const pcPostSchema = new Schema(
   {
     image: {
-      type: [String],
+      type: String,
       required: true,
     },
     name: {
@@ -35,4 +35,4 @@ const pcSchema = new Schema(
 );
 
 
-module.exports = mongoose.model('PC', pcSchema);
+module.exports = mongoose.model('PC', pcPostSchema);
