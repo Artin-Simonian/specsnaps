@@ -13,15 +13,15 @@ const pcPostSchema = new Schema(
     },
     processor: {
       type: String,
-      reuired: true,
+      required: true,
     },
     videoCard: {
       type: String,
-      reuired: true,
+      required: true,
     },
     ram: {
       type: Number,
-      reuired: true,
+      required: true,
       min: 1,
     },
     user: {

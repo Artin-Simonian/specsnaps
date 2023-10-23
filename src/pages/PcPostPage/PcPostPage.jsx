@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import React from "react";
+import { addPC } from '../../utilities/pc-api'
 
 function PcPostPage() {
   const fileInputRef = useRef();
@@ -13,20 +14,14 @@ function PcPostPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: name === 'ram' ? parseInt(value) : value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/pcs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await addPC(formData);
 
       if (response.ok) {
         // Handle success
