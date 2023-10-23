@@ -12,6 +12,9 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link className="route" to="/">
         Home
+      </Link>&nbsp; &nbsp;
+      <Link className="route" to="/Developer">
+        Developer
       </Link>
       &nbsp; &nbsp;
       {user ? (
