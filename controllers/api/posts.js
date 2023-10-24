@@ -7,6 +7,7 @@ const create = async (req, res) => {
     req.body.image = 'hello' //await uploadFile(req.file);
     const pc = await PC.create(req.body);
     res.status(201).json({ message: "PC post uploaded successfully" });
+
   } catch (error) {
     console.log("Error");
     res.status(500).json({ error: "Failed to save PC data" });
