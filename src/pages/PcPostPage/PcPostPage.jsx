@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import React from "react";
 import { addPC } from "../../utilities/pc-api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,7 +14,6 @@ function PcPostPage() {
   });
 
   const navigate = useNavigate();
-  const { postId } = useParams();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({

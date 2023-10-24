@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getPCPosts } from '../../utilities/pc-api';
 import * as pcApi from '../../utilities/pc-api';
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -17,6 +16,8 @@ function HomePage() {
 
     fetchPosts();
   }, []);
+
+  
 
   return (
     <main className="HomePage">
