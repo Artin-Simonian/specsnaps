@@ -6,5 +6,5 @@ export async function addPC(pcData) {
 }
 
 export async function getPCPosts() {
-  return sendRequest(BASE_URL, 'GET');
+  return sendRequest(BASE_URL);
 }

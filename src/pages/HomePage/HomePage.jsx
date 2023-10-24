@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { getPCPosts } from '../../utilities/pc-api';
-
+import * as pcApi from '../../utilities/pc-api';
 function HomePage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await getPCPosts();
-        if (response.ok) {
-          const data = await response.json();
-          setPosts(data);
-        } else {
-
-        }
+        const data = await pcApi.getPCPosts();
+        console.log("Data received:", data);;
+        setPosts(posts);
       } catch (error) {
+        console.error("Error fetching posts:", error);
       }
     }
 
@@ -28,7 +25,7 @@ function HomePage() {
       </div>
       <div className="post-list">
         {posts.map((post) => (
-          <div key={post.id} className="post">
+          <div key={post._id} className="post"> {/* Use post._id instead of post.id */}
             <img src={post.image} alt={post.name} />
             <h2>{post.name}</h2>
             <p>Processor: {post.processor}</p>
