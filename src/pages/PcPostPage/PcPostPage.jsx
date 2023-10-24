@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import React from "react";
-import { addPC } from '../../utilities/pc-api'
+import { addPC } from "../../utilities/pc-api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function PcPostPage() {
@@ -14,10 +14,13 @@ function PcPostPage() {
   });
 
   const navigate = useNavigate();
-  const { postId } = useParams(); 
+  const { postId } = useParams();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: name === 'ram' ? parseInt(value) : value });
+    setFormData({
+      ...formData,
+      [name]: name === "ram" ? parseInt(value) : value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -27,14 +30,10 @@ function PcPostPage() {
       const response = await addPC(formData);
 
       if (response.ok) {
-        // Handle success
-        navigate('/');
+        navigate("/");
       } else {
-        // Handle errors
       }
-    } catch (error) {
-      // Handle network errors
-    }
+    } catch (error) {}
   };
 
   return (

@@ -13,6 +13,17 @@ const create = async (req, res) => {
   }
 };
 
+const getAllPCs = async(req, res) => {
+  try {
+    const PCs = await PC.find({});
+    res.json(PCs)
+  }
+  catch (error){
+    console.log('Error')
+  }
+}
+
 module.exports = {
   create,
+  getAllPCs
 };

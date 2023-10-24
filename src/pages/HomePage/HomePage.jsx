@@ -9,7 +9,7 @@ function HomePage() {
       try {
         const data = await pcApi.getPCPosts();
         console.log("Data received:", data);;
-        setPosts(posts);
+        setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -25,9 +25,9 @@ function HomePage() {
       </div>
       <div className="post-list">
         {posts.map((post) => (
-          <div key={post._id} className="post"> {/* Use post._id instead of post.id */}
-            <img src={post.image} alt={post.name} />
-            <h2>{post.name}</h2>
+          <div key={post._id} className="post"> 
+            <img src={post.image} />
+            <h2>Name: {post.name}</h2>
             <p>Processor: {post.processor}</p>
             <p>Video Card: {post.videoCard}</p>
             <p>RAM: {post.ram} GB</p>
