@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import React from "react";
 import { addPC } from '../../utilities/pc-api'
+import { useNavigate, useParams } from "react-router-dom";
 
 function PcPostPage() {
   const fileInputRef = useRef();
@@ -12,6 +13,8 @@ function PcPostPage() {
     ram: 0,
   });
 
+  const navigate = useNavigate();
+  const { postId } = useParams(); 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: name === 'ram' ? parseInt(value) : value });
@@ -25,6 +28,7 @@ function PcPostPage() {
 
       if (response.ok) {
         // Handle success
+        navigate('/');
       } else {
         // Handle errors
       }
