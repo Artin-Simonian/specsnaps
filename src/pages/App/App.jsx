@@ -7,6 +7,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../../pages/HomePage/HomePage";
 import PcPostPage from "../PcPostPage/PcPostPage";
 import Developer from "../Developer/Developer";
+import PostDetailPage from '../PostDetailPage/PostDetailPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Developer" element={<Developer />} />
         <Route path="/posts" element={<PcPostPage />} />
+        <Route path="/posts/:postId" element={<PostDetailPage />} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
       </Routes>
     </main>

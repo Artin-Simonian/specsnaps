@@ -16,3 +16,7 @@ export async function addReviewToPCPost(postId, reviewContent) {
   
   return sendRequest(url, 'POST', reviewData);
 }
+
+export async function getById(postId){
+  return sendRequest(`${BASE_URL}/${postId}`);
+}

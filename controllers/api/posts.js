@@ -24,7 +24,20 @@ const getAllPCs = async(req, res) => {
   }
 }
 
+const getById = async(req, res) => {
+  try {
+    const PC = await PC.findById(req.params.postId);
+    res.json(PC)
+  }
+  catch (error){
+    console.log('Error')
+  }
+}
+
+
+
 module.exports = {
   create,
-  getAllPCs
+  getAllPCs,
+  getById
 };

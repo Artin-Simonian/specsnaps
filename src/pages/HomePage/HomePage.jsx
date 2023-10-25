@@ -27,11 +27,8 @@ function HomePage() {
       <div className="post-list">
         {posts.map((post) => (
           <div key={post._id} className="post"> 
-            <img src={post.image} />
-            <h2>Name: {post.name}</h2>
-            <p>Processor: {post.processor}</p>
-            <p>Video Card: {post.videoCard}</p>
-            <p>RAM: {post.ram} GB</p>
+            <a href=""><img src={post.image} /></a>
+            <a href=""><h2>Name: {post.name}</h2></a>
           </div>
         ))}
       </div>
