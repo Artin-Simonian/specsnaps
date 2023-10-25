@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import {  Link, useParams} from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
 import * as postsApi from "../../utilities/pc-api";
-
+import "./PostDetailPage.css";
 export default function PostDetailPage() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
@@ -10,7 +10,7 @@ export default function PostDetailPage() {
     async function fetchPost() {
       try {
         const postDetail = await postsApi.getById(postId);
-        console.log(postDetail)
+        console.log(postDetail);
         setPost(postDetail);
       } catch (error) {
         console.error("Error fetching post:", error);
@@ -18,25 +18,28 @@ export default function PostDetailPage() {
     }
 
     fetchPost();
-  }, [post]);
+  }, [postId]);
 
   return (
-    <main>
-      {post && <div className="PcPost">
-        
-        <img src={post.image} alt={post.name} />
-        <h1>{post.name}</h1>
-        <p>{post.processor}</p>
-        <p>{post.videoCard}</p>
-        <p>{post.ram}</p>
-
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-      </div>
-}
+    <main className="detailsPage">
+      {post && (
+        <div className="PcPost">
+          <img src={post.image} />
+          <h1>{post.name}</h1>
+          <p>Processor: {post.processor}</p>
+          <p>Video Card: {post.videoCard}</p>
+          <p>Ram: {post.ram}</p>
+        </div>
+      )}
       <div className="reviewsSection">
         <h3>Comments</h3>
+        <form>
+          <label htmlFor="">Leave a Review</label>
+          <br />
+          <textarea cols="20" rows="2" placeholder="Leave a Review"></textarea>
+          <br />
+          <input type="submit" value="Add Review"></input>
+        </form>
       </div>
     </main>
   );
