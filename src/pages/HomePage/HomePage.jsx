@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import * as pcApi from '../../utilities/pc-api';
+import * as pcApi from "../../utilities/pc-api";
+import { Link } from "react-router-dom";
 function HomePage() {
   const [posts, setPosts] = useState([]);
 
@@ -7,7 +8,7 @@ function HomePage() {
     async function fetchPosts() {
       try {
         const data = await pcApi.getPCPosts();
-        console.log("Data received:", data);;
+        console.log("Data received:", data);
         setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -17,19 +18,16 @@ function HomePage() {
     fetchPosts();
   }, []);
 
-  
-
   return (
     <main className="HomePage">
-      <div>
-        <h1>Home</h1>
-      </div>
       <div className="post-list">
         {posts.map((post) => (
-          <div key={post._id} className="post"> 
-            <a href=""><img src={post.image} /></a>
-            <a href=""><h2>Name: {post.name}</h2></a>
-          </div>
+          <Link to={`/posts/${post._id}`}>
+            <div key={post._id} className="post">
+              <img src={post.image} alt={post.name} />
+              <h2>Name: {post.name}</h2>
+            </div>
+          </Link>
         ))}
       </div>
     </main>

@@ -25,12 +25,13 @@ const getAllPCs = async(req, res) => {
 }
 
 const getById = async(req, res) => {
+  console.log(req.params.postId)
   try {
-    const PC = await PC.findById(req.params.postId);
-    res.json(PC)
+    const PCDetail = await PC.findById(req.params.postId);
+    res.json(PCDetail)
   }
   catch (error){
-    console.log('Error')
+    console.log('Error, could not get Post')
   }
 }
 
