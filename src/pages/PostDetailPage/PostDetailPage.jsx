@@ -21,14 +21,19 @@ export default function PostDetailPage() {
 
   return (
     <main>
-      <img src={post.image} alt={post.name} />
-      <h1>{post.name}</h1>
-      <p>{post.processor}</p>
-      <p>{post.videoCard}</p>
-      <p>{post.ram}</p>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+      <div className="PcPost">
+        <img src={post.image} alt={post.name} />
+        <h1>{post.name}</h1>
+        <p>{post.processor}</p>
+        <p>{post.videoCard}</p>
+        <p>{post.ram}</p>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </div>
+      <div className="reviewsSection">
+        <h3>Comments</h3>
+      </div>
     </main>
   );
 }

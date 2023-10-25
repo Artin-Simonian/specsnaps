@@ -24,7 +24,7 @@ export default function LoginForm({ setUser }) {
       setUser(user);
       navigate('/');
     } catch {
-      setError('Log In Failed - Try Again');
+      setError('Email and Password do not match');
     }
   }
 
@@ -33,9 +33,9 @@ export default function LoginForm({ setUser }) {
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <input type="text" name="email" value={credentials.email} onChange={handleChange} required /> <br />
           <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          <input type="password" name="password" value={credentials.password} onChange={handleChange} required /> <br />
           <button type="submit">LOG IN</button>
         </form>
       </div>
