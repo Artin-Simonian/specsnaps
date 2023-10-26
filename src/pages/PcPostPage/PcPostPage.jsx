@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import React from "react";
 import { addPC } from "../../utilities/pc-api";
 import { useNavigate, useParams } from "react-router-dom";
+import "./PcPostPage.css";
 
 function PcPostPage() {
   const fileInputRef = useRef();
@@ -36,8 +37,8 @@ function PcPostPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="file" ref={fileInputRef} /> <br />
+    <form className="post-page-form" onSubmit={handleSubmit}>
+      <input type="file" ref={fileInputRef} /> <br /> <br />
       <label>
         Name:
         <input

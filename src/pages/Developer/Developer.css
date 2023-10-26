@@ -1,5 +1,28 @@
-#developer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#developer {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 165, 255, 0.75);
+  height: 400px;
+  padding: 20px;
+  border-radius: 20%;
+  box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+  -webkit-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+  -moz-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+}
+
+#developer img {
+  height: 200px;
+  border-radius: 50%;
+  border: 1px #fff solid;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 900;
 }

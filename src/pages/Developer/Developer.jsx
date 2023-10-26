@@ -5,7 +5,7 @@ export default function Developer() {
       <div class="container" id="developer">
         <div class="row">
           <div class="col">
-            <img src="https://i.imgur.com/9PxtRK9.png" alt="" />
+            <img src="https://i.imgur.com/PNmwuJG.png" alt="" />
           </div>
           <div class="col">
             <p>
