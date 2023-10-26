@@ -10,6 +10,4 @@ router.get("/:postId", pcCtrl.getById);
 //router.delete("/", ensureLoggedIn, pcCtrl.deletePost)
 //router.post("/upload", ensureLoggedIn, pcCtrl.uploadPC);
 
-
-
 module.exports = router;

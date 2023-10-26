@@ -1,4 +1,4 @@
-import './Developer.css'
+import "./Developer.css";
 export default function Developer() {
   return (
     <>

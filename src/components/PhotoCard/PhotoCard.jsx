@@ -1,5 +1,3 @@
-
-
 export default function PhotoCard({ photo }) {
   return (
     <article className="PhotoCard">

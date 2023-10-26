@@ -24,7 +24,7 @@ function HomePage() {
         {posts.map((post) => (
           <Link to={`/posts/${post._id}`}>
             <div key={post._id} className="post">
-              <img src={post.image}/>
+              <img src={post.image} />
               <h2>{post.name}</h2>
             </div>
           </Link>

@@ -54,5 +54,4 @@ const pcPostSchema = new Schema(
   }
 );
 
-
-module.exports = mongoose.model('PC', pcPostSchema);
+module.exports = mongoose.model("PC", pcPostSchema);
