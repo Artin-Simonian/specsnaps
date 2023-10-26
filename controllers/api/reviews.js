@@ -1,23 +1,20 @@
 const PC = require("../../models/pc");
 
-const create = async (req, res) => {
-  const pc = await PC.findById(req.params.postId);
-  pc.reviews.push(req.body);
-  const review = pc.reviews.id(req.params.id);
-
-  if (!review.user.equals(req.user._id))
-    return res.redirect(`/posts/${post._id}`);
-  review.content = req.body.content;
+const createReview = async (req, res) => {
+  
+  const pcPost = await PC.findById(req.params.postId);
+  req.body.user = req.user._id;
+  pcPost.reviews.push(req.body);
   try {
-    await pc.save();
-  } catch (error) {
-    console.log("Error");
+    await pcPost.save()
+  } catch {
+    console.log('No reviews saved')
   }
 };
 
 async function deleteReview() {}
 
 module.exports = {
-  create,
+  createReview,
   deleteReview,
 };

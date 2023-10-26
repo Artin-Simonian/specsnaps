@@ -5,7 +5,7 @@ import "./PostDetailPage.css";
 export default function PostDetailPage() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
-  console.log(postId);
+  const [reviewData, setReviewData] = useState({content:''});
   useEffect(() => {
     async function fetchPost() {
       try {
@@ -20,6 +20,10 @@ export default function PostDetailPage() {
     fetchPost();
   }, [postId]);
 
+  function handleCreateReview(){
+    postsApi.createReview(reviewData, postId);
+  }
+
   return (
     <main className="detailsPage">
       {post && (
@@ -33,10 +37,10 @@ export default function PostDetailPage() {
       )}
       <div className="reviewsSection">
         <h3>Comments</h3>
-        <form>
+        <form onSubmit={handleCreateReview}>
           <label htmlFor="">Leave a Review</label>
           <br />
-          <textarea cols="20" rows="2" placeholder="Leave a Review"></textarea>
+          <textarea onChange={(e) => setReviewData({content:e.target.value})} value={reviewData.content} cols="20" rows="2" placeholder="Leave a Review"></textarea>
           <br />
           <input type="submit" value="Add Review"></input>
         </form>

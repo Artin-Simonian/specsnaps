@@ -1,7 +1,7 @@
 const PC = require("../../models/pc");
 
 const create = async (req, res) => {
-    console.log(req.body)
+    
   try {
     req.body.user = req.user._id;
     req.body.image = 'hello' //await uploadFile(req.file);
@@ -25,7 +25,7 @@ const getAllPCs = async(req, res) => {
 }
 
 const getById = async(req, res) => {
-  console.log(req.params.postId)
+  
   try {
     const PCDetail = await PC.findById(req.params.postId);
     res.json(PCDetail)

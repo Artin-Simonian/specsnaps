@@ -4,5 +4,7 @@ const reviewCtrl = require("../../controllers/api/reviews");
 const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 
-router.post("/", ensureLoggedIn, reviewCtrl.createReview);
-router.delete("/", ensureLoggedIn, reviewCtrl.delete)
+router.put("/:postId/reviews", ensureLoggedIn, reviewCtrl.createReview);
+
+
+module.exports = router;

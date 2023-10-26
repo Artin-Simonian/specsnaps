@@ -10,13 +10,15 @@ export async function getPCPosts() {
   return sendRequest(BASE_URL);
 }
 
-export async function addReviewToPCPost(postId, reviewContent) {
-  const url = `${BASE_URL}/${postId}/reviews`; 
-  const reviewData = { content: reviewContent };
-  
-  return sendRequest(url, 'POST', reviewData);
-}
+
 
 export async function getById(postId){
   return sendRequest(`${BASE_URL}/${postId}`);
 }
+
+export async function createReview(reviewData, postId){
+  return sendRequest(`${BASE_URL}/${postId}/reviews`, 'PUT', reviewData)
+}
+
+
+

@@ -32,6 +32,8 @@ app.use('/api/users', require('./routes/api/users'));
 
 app.use('/api/pcPosts', require('./routes/api/pcPosts'));
 
+app.use('/api/pcPosts', require('./routes/api/pcReviews'))
+
 
 
 // The following "catch all" route (note the *) is necessary
