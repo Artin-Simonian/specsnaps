@@ -8,6 +8,7 @@ import HomePage from "../../pages/HomePage/HomePage";
 import PcPostPage from "../PcPostPage/PcPostPage";
 import Developer from "../Developer/Developer";
 import PostDetailPage from "../PostDetailPage/PostDetailPage";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/posts/:postId" element={<PostDetailPage />} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
       </Routes>
+      <Footer />
     </main>
   );
 }
