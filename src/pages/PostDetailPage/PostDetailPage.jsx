@@ -5,7 +5,7 @@ import "./PostDetailPage.css";
 export default function PostDetailPage() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
-  const [reviewData, setReviewData] = useState({ content: "" });
+  const [reviewData, setReviewData] = useState({content:''});
   useEffect(() => {
     async function fetchPost() {
       try {
@@ -20,20 +20,8 @@ export default function PostDetailPage() {
     fetchPost();
   }, [postId]);
 
-  useEffect(() => {
-    async function fetchReviews() {
-      try {
-        const reviewDetail = await postsApi.getReviewsForPost(postId);
-        setReviewData(reviewDetail);
-      } catch (error) {
-        console.error("Error fetching Review:", error);
-      }
-    }
 
-    fetchReviews();
-  }, [postId]);
-
-  function handleCreateReview() {
+  function handleCreateReview(){
     postsApi.createReview(reviewData, postId);
   }
 
@@ -45,7 +33,7 @@ export default function PostDetailPage() {
           <h1>{post.name}</h1>
           <p>Processor: {post.processor}</p>
           <p>Video Card: {post.videoCard}</p>
-          <p>Ram: {post.ram}GB</p>
+          <p>Ram: {post.ram}</p>
         </div>
       )}
       <div className="reviewsSection">
@@ -53,19 +41,13 @@ export default function PostDetailPage() {
         <form onSubmit={handleCreateReview}>
           <label htmlFor="">Leave a Review</label>
           <br />
-          <textarea
-            onChange={(e) => setReviewData({ content: e.target.value })}
-            value={reviewData.content}
-            cols="20"
-            rows="2"
-            placeholder="Leave a Review"
-          ></textarea>
+          <textarea onChange={(e) => setReviewData({content:e.target.value})} value={reviewData.content} cols="20" rows="2" placeholder="Leave a Review"></textarea>
           <br />
           <input type="submit" value="Add Review"></input>
         </form>
       </div>
       <div>
-        <p>{reviewData.content}</p>
+        
       </div>
     </main>
   );

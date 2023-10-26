@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as pcApi from "../../utilities/pc-api";
 import { Link } from "react-router-dom";
+import './HomePage.css'
 function HomePage() {
   const [posts, setPosts] = useState([]);
 
@@ -22,11 +23,11 @@ function HomePage() {
     <main className="HomePage">
       <div className="post-list">
         {posts.map((post) => (
-          <Link to={`/posts/${post._id}`}>
+          <Link className="post-link" to={`/posts/${post._id}`}>
             <div key={post._id} className="post">
               <img src={post.image} />
               <h2>{post.name}</h2>
-            </div>
+            </div><br /><br />
           </Link>
         ))}
       </div>

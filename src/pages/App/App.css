@@ -2,11 +2,11 @@
   text-align: center;
 }
 .route{
-  color: #000;
+  color: #fff;
   text-decoration: none;
   font-weight: 900;
 }
 
 .route:hover{
-  color: #001BFF;
+  color: rgba(0,165,255,0.75);
 }

@@ -1,0 +1,19 @@
+.post {
+  background-color: rgba(0,165,255,0.75);
+  color: #fff;
+  border-radius: 3%;
+  width: 30%;
+  margin: auto;
+  height: 200px;
+  box-shadow: -1px 0px 44px -6px rgba(0,165,255,1);
+-webkit-box-shadow: -1px 0px 44px -6px rgba(0,165,255,1);
+-moz-box-shadow: -1px 0px 44px -6px rgba(0,165,255,1);
+}
+
+.HomePage {
+  margin-top: 30px;
+}
+
+.post-link{
+    text-decoration: none;
+}
