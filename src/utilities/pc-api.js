@@ -18,6 +18,6 @@ export async function getById(postId) {
   return sendRequest(`${BASE_URL}/${postId}`);
 }
 
-export async function createReview(reviewData, postId) {
-  return sendRequest(`${BASE_URL}/${postId}/reviews`, "PUT", reviewData);
+export async function createReview(postId, content) {
+  return sendRequest(`${BASE_URL}/${postId}/reviews`, "PUT", { content });
 }

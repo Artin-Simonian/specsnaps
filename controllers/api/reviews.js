@@ -1,19 +1,20 @@
 const PC = require("../../models/pc");
 
 const createReview = async (req, res) => {
-  const pcPost = await PC.findById(req.params.postId);
+  const post = await PC.findById(req.params.postId);
   req.body.user = req.user._id;
-  pcPost.reviews.push(req.body);
+  post.reviews.push(req.body);
   try {
-    await pcPost.save();
+    await post.save();
+    res.json(post);  // Send back the updated post
   } catch {
-    console.log("No reviews saved");
+    res.status(400).json('Review not created');
   }
 };
 
-async function deleteReview() {}
+
 
 module.exports = {
   createReview,
-  deleteReview,
+
 };

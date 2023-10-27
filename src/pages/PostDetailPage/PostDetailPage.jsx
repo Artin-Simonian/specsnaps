@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as postsApi from "../../utilities/pc-api";
 import "./PostDetailPage.css";
+
 export default function PostDetailPage() {
   const [post, setPost] = useState(null);
+  const [reviewContent, setReviewContent] = useState("");
   const { postId } = useParams();
-  const [reviewData, setReviewData] = useState({content:''});
+
   useEffect(() => {
     async function fetchPost() {
       try {
@@ -20,16 +22,23 @@ export default function PostDetailPage() {
     fetchPost();
   }, [postId]);
 
-
-  function handleCreateReview(){
-    postsApi.createReview(reviewData, postId);
+  async function handleCreateReview() {
+    try {
+      // IMPORTANT: In the controller, res.json the updated post
+      const updatedPost = await postsApi.createReview(postId, reviewContent);
+      setPost(updatedPost);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+    setReviewContent("");
   }
 
+  if (!post) return null;
   return (
     <main className="detailsPage">
       {post && (
         <div className="PcPost">
-          <img src={post.image} />
+          <img src={post.image} alt={post.name} />
           <h1>{post.name}</h1>
           <p>Processor: {post.processor}</p>
           <p>Video Card: {post.videoCard}</p>
@@ -37,17 +46,26 @@ export default function PostDetailPage() {
         </div>
       )}
       <div className="reviewsSection">
-        <h3>Comments</h3>
         <form onSubmit={handleCreateReview}>
-          <label htmlFor="">Leave a Review</label>
+          <label htmlFor="review">Leave a Review</label>
           <br />
-          <textarea onChange={(e) => setReviewData({content:e.target.value})} value={reviewData.content} cols="20" rows="2" placeholder="Leave a Review"></textarea>
+          <textarea
+            onChange={(e) => setReviewContent(e.target.value)}
+            value={reviewContent}
+            cols="20"
+            rows="2"
+          ></textarea>
           <br />
-          <input type="submit" value="Add Review"></input>
+          <input type="submit" value="Add Review" />
         </form>
-      </div>
-      <div>
-        
+        <div>
+          {post.reviews.map((review, index) => (
+            <div key={index}>
+              <p>{review.content}</p>
+              <hr />
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

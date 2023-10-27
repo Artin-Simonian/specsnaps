@@ -1,9 +1,23 @@
 .detailsPage{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: rgba(0, 165, 255, 0.75);
-    width: 40%;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5%;
+    text-align: center;
+    box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+    -webkit-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+    -moz-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
+}
+
+.all-reviews{
+    background-color: rgba(0, 165, 255, 0.75);
+    height: 200px;
+    width: 50%;
     margin: auto;
     margin-top: 30px;
     padding: 10px;
