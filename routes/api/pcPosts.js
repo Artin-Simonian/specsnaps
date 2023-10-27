@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("multer")();
 const pcCtrl = require("../../controllers/api/posts");
 const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
-router.post("/", ensureLoggedIn, pcCtrl.create);
+router.post("/", ensureLoggedIn, upload.single('image'), pcCtrl.create);
 router.get("/", pcCtrl.getAllPCs);
 router.get("/:postId", pcCtrl.getById);
 

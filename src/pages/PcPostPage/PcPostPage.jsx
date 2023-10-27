@@ -7,7 +7,6 @@ import "./PcPostPage.css";
 function PcPostPage() {
   const fileInputRef = useRef();
   const [formData, setFormData] = useState({
-    image: "",
     name: "",
     processor: "",
     videoCard: "",
@@ -19,23 +18,29 @@ function PcPostPage() {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: name === "ram" ? parseInt(value) : value,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Use FormData object to send the inputs in the fetch request
+    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_a_file
+    const uploadData = new FormData();
+    uploadData.append("name", formData.name);
+    uploadData.append("processor", formData.processor);
+    uploadData.append("videoCard", formData.videoCard);
+    uploadData.append("ram", formData.ram);
+    uploadData.append("image", fileInputRef.current.files[0]);
     try {
-      const response = await addPC(formData);
-
-      if (response.ok) {
-        navigate("/");
-      } else {
-      }
-    } catch (error) {}
+      await addPC(uploadData);
+      navigate("/");
+    } catch (error) {
+      console.log(error)
+    }
   };
-
+console.log(formData);
   return (
     <form className="post-page-form" onSubmit={handleSubmit}>
       <input type="file" ref={fileInputRef} /> <br /> <br />
@@ -72,7 +77,7 @@ function PcPostPage() {
       <label>
         RAM:
         <input
-          type="number"
+          type="text"
           name="ram"
           value={formData.ram}
           onChange={handleChange}

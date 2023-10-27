@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as pcApi from "../../utilities/pc-api";
 import { Link } from "react-router-dom";
-import './HomePage.css'
+import "./HomePage.css";
 function HomePage() {
   const [posts, setPosts] = useState([]);
 
@@ -10,7 +10,7 @@ function HomePage() {
       try {
         const data = await pcApi.getPCPosts();
         console.log("Data received:", data);
-        setPosts(data);
+        setPosts(data.reverse());
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -27,7 +27,10 @@ function HomePage() {
             <div key={post._id} className="post">
               <img src={post.image} />
               <h2>{post.name}</h2>
-            </div><br /><br />
+              <p>posted by: {post.user.name}</p>
+            </div>
+            <br />
+            <br />
           </Link>
         ))}
       </div>

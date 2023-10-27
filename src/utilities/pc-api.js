@@ -3,7 +3,7 @@ import sendRequest from "./send-request";
 const BASE_URL = "/api/pcPosts";
 
 export async function addPC(pcData) {
-  return sendRequest(BASE_URL, "POST", pcData);
+  return sendRequest(BASE_URL, "POST", pcData, true);
 }
 
 export async function getPCPosts() {

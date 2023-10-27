@@ -44,12 +44,12 @@ export default function PostDetailPage() {
           <h1>{post.name}</h1>
           <p>Processor: {post.processor}</p>
           <p>Video Card: {post.videoCard}</p>
-          <p>Ram: {post.ram}</p>
+          <p>Ram: {post.ram}GB</p>
         </div>
       )}
       <div className="reviewsSection">
         <form onSubmit={handleCreateReview}>
-          <label htmlFor="review">Leave a Review</label>
+          <label htmlFor="review">Leave a Review or a Comment <br />for {post.name}</label>
           <br />
           <textarea
             onChange={(e) => setReviewContent(e.target.value)}
@@ -69,7 +69,7 @@ export default function PostDetailPage() {
       <hr />
       {post.reviews.slice().reverse().map((review, index) => (
         <div key={index}>
-          <p>{review.content}</p>
+          <p>{review.user} | {review.content}</p>
           <hr />
         </div>
       ))}
