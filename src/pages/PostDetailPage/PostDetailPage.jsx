@@ -34,7 +34,9 @@ export default function PostDetailPage() {
   }
 
   if (!post) return null;
+  const reversedReviews = post.reviews.slice().reverse();
   return (
+    <>
     <main className="detailsPage">
       {post && (
         <div className="PcPost">
@@ -58,15 +60,21 @@ export default function PostDetailPage() {
           <br />
           <input type="submit" value="Add Review" />
         </form>
-        <div>
-          {post.reviews.map((review, index) => (
-            <div key={index}>
-              <p>{review.content}</p>
-              <hr />
-            </div>
-          ))}
-        </div>
       </div>
     </main>
+    <div className="overflow-auto" id="all-reviews">
+      <div>
+        <h1>Reviews</h1>
+      </div>
+      <hr />
+      {post.reviews.slice().reverse().map((review, index) => (
+        <div key={index}>
+          <p>{review.content}</p>
+          <hr />
+        </div>
+      ))}
+    </div>
+  </>
+    
   );
 }
