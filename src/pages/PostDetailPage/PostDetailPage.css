@@ -14,6 +14,12 @@
   -moz-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
 }
 
+.detailsPage img{
+  height: 150px;
+  margin-top: 10px;
+  border-radius: 5%;
+}
+
 #all-reviews {
   background-color: rgba(0, 165, 255, 0.75);
   height: 200px;

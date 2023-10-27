@@ -27,7 +27,7 @@ function HomePage() {
             <div key={post._id} className="post">
               <img src={post.image} />
               <h2>{post.name}</h2>
-              <p>posted by: {post.user.name}</p>
+              <p>@{post.user.name}</p>
             </div>
             <br />
             <br />
