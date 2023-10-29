@@ -12,9 +12,21 @@ const createReview = async (req, res) => {
   }
 };
 
+const deleteReview = async (req,res) =>{
+  const post = await Pc.findOne({
+    "reviews._id": req.params.id,
+    "reviews.user": req.user._id,
+  })
+  if (!post) return res.redirect('/posts');
+
+  post.reviews.remove(req.params.id);
+  await post.save();
+  res.redirect(`/posts/${post._id}`)
+}
+
 
 
 module.exports = {
   createReview,
-
+  deleteReview
 };
