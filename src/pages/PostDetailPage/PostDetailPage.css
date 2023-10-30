@@ -33,3 +33,14 @@
   -webkit-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
   -moz-box-shadow: -1px 0px 44px -6px rgba(0, 165, 255, 1);
 }
+
+
+.submit-btn{
+  border-radius: 30%;
+  background-color: #fff;
+}
+
+.submit-btn:hover{
+  color: #fff;
+  background-color: rgba(0, 165, 255, 0.75);
+}

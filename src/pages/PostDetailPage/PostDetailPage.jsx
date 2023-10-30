@@ -73,7 +73,7 @@ export default function PostDetailPage() {
                 rows="2"
               ></textarea>
               <br />
-              <input type="submit" value="Add Review" />
+              <input className="submit-btn" type="submit" value="Add Review" />
             </form>
           ) : (
             <p>Please log in to leave a Review/Comment</p>

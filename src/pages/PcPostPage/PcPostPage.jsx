@@ -43,7 +43,7 @@ function PcPostPage() {
 console.log(formData);
   return (
     <form className="post-page-form" onSubmit={handleSubmit}>
-      <input type="file" ref={fileInputRef} /> <br /> <br />
+      <input className="file-btn" type="file" ref={fileInputRef} /> <br /> <br />
       <label>
         Name: <br />
         <input
