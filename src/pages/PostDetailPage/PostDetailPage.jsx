@@ -85,22 +85,22 @@ export default function PostDetailPage() {
           <h1>Reviews</h1>
         </div>
         <hr />
-        {post.reviews
-          .reverse()
-          .map((review, index) => (
-            <div key={index}>
-              <p>
-                {review.userName} | {review.content}
-              </p>
+        {post.reviews.reverse().map((review, index) => (
+          <div key={index}>
+            <p>
+              {review.userName} | {review.content}
+            </p>
+            {user && review.userName === user.name && (
               <button
                 onClick={() => handleDeleteReview(review._id)}
                 className="delete-button"
               >
                 ❌
               </button>
-              <hr />
-            </div>
-          ))}
+            )}
+            <hr />
+          </div>
+        ))}
       </div>
     </>
   );
