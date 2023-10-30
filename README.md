@@ -29,7 +29,6 @@
   |<h4>Home</h4> | <img src="https://i.imgur.com/scR3PWj.png">|
   |<h4>Developer</h4>| <img src="https://i.imgur.com/1E3hYRx.png">|
   |<h4>PC Detail Page</h4> | <img src="https://i.imgur.com/q5khm5B.png">|
-  |<h4>Developer</h4>| <img src="https://i.imgur.com/1E3hYRx.png">|
 
 
 </div>
