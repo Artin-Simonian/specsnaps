@@ -21,7 +21,7 @@
 <div id="body" align='center'>
 
 ## 🖨 Description 
- SpecSnaps is your go-to web app for showcasing your PC's hardware prowess. With a quick and easy account setup, you can share the heart and soul of your computer with the world. Post high-quality images of your rig, accompanied by detailed specs, and let the tech community admire your setup. Whether you're a hardcore gamer, a content creator, or just a PC enthusiast, SpecSnaps is the perfect platform to flaunt your rig's power and style. Join today and start sharing your PC pride with the world!
+ SpecSnaps is your go-to web app for showcasing your PC's. With a quick and easy account setup, you can share the heart and soul of your computer with the world. Post high-quality images of your rig, accompanied by detailed specs, and let the tech community admire your setup. Whether you're a hardcore gamer, a content creator, or just a PC enthusiast, SpecSnaps is the perfect platform to flaunt your rig's power and style. Join today and start sharing your PC pride with the world!
 
  ## 📸 Screenshots  
   |   Description | Screenshot | 
