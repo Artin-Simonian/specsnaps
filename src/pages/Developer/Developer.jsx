@@ -9,7 +9,7 @@ export default function Developer() {
           </div>
           <div class="col">
             <p>
-              Hello, <br />I am Artin, Full Stack software engineer located in Los Angeles,
+              Hello, <br />My name is Artin, Full Stack software engineer located in Los Angeles,
               Ca <br />
               <div className="icons-links">
                 <a href="https://www.linkedin.com/in/artin-simonian/" target="_blank">
