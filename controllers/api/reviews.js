@@ -3,6 +3,7 @@ const PC = require("../../models/pc");
 const createReview = async (req, res) => {
   const post = await PC.findById(req.params.postId);
   req.body.user = req.user._id;
+  req.body.userName = req.user.name;
   post.reviews.push(req.body);
   try {
     await post.save();

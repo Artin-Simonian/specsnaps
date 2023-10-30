@@ -45,17 +45,17 @@ console.log(formData);
     <form className="post-page-form" onSubmit={handleSubmit}>
       <input type="file" ref={fileInputRef} /> <br /> <br />
       <label>
-        Name:
+        Name: <br />
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-        />
+        /> 
       </label>
       <br />
       <label>
-        Processor:
+        Processor: <br />
         <input
           type="text"
           name="processor"
@@ -65,7 +65,7 @@ console.log(formData);
       </label>
       <br />
       <label>
-        Video Card:
+        Video Card: <br />
         <input
           type="text"
           name="videoCard"
@@ -75,7 +75,7 @@ console.log(formData);
       </label>
       <br />
       <label>
-        RAM:
+        RAM: <br />
         <input
           type="text"
           name="ram"
@@ -83,7 +83,7 @@ console.log(formData);
           onChange={handleChange}
         />
       </label>
-      <br />
+      <br /> <br />
       <button type="submit">Submit</button>
     </form>
   );

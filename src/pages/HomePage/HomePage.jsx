@@ -11,6 +11,7 @@ function HomePage() {
         const data = await pcApi.getPCPosts();
         console.log("Data received:", data);
         setPosts(data.reverse());
+        setPosts(data.reverse());
       } catch (error) {
         console.error("Error fetching posts:", error);
       }

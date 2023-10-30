@@ -41,63 +41,67 @@ export default function PostDetailPage() {
       setPost(updatedPost);
     } catch (error) {
       console.log("Error:", error);
-      
     }
   }
-
 
   if (!post) return null;
   const reversedReviews = post.reviews.slice().reverse();
   return (
     <>
-    <main className="detailsPage">
-      {post && (
-        <div className="PcPost">
-          <img src={post.image} alt={post.name} />
-          <h1>{post.name}</h1>
-          <p>Processor: {post.processor}</p>
-          <p>Video Card: {post.videoCard}</p>
-          <p>Ram: {post.ram}GB</p>
-        </div>
-      )}
-      <div className="reviewsSection">
-        {user ? ( 
-          <form onSubmit={handleCreateReview}>
-            <label htmlFor="review">Leave a Review or a Comment <br />for {post.name}</label>
-            <br />
-            <textarea
-              onChange={(e) => setReviewContent(e.target.value)}
-              value={reviewContent}
-              cols="20"
-              rows="2"
-            ></textarea>
-            <br />
-            <input type="submit" value="Add Review" />
-          </form>
-        ) : (
-          <p>Please log in to leave a Review/Comment</p>
+      <main className="detailsPage">
+        {post && (
+          <div className="PcPost">
+            <img src={post.image} alt={post.name} />
+            <h1>{post.name}</h1>
+            <p>Processor: {post.processor}</p>
+            <p>Video Card: {post.videoCard}</p>
+            <p>Ram: {post.ram}GB</p>
+          </div>
         )}
-      </div>
-    </main>
-    <div className="overflow-auto" id="all-reviews">
-      <div>
-        <h1>Reviews</h1>
-      </div>
-      <hr />
-      {post.reviews.slice().reverse().map((review, index) => (
-        <div key={index}>
-          <p>{review.user} | {review.content}</p>
-          <button
-              onClick={() => handleDeleteReview(review._id)}
-              className="delete-button"
-            >
-              ❌
-            </button>
-          <hr />
+        <div className="reviewsSection">
+          {user ? (
+            <form onSubmit={handleCreateReview}>
+              <label htmlFor="review">
+                Leave a Review or a Comment <br />
+                for {post.name}
+              </label>
+              <br />
+              <textarea
+                onChange={(e) => setReviewContent(e.target.value)}
+                value={reviewContent}
+                cols="20"
+                rows="2"
+              ></textarea>
+              <br />
+              <input type="submit" value="Add Review" />
+            </form>
+          ) : (
+            <p>Please log in to leave a Review/Comment</p>
+          )}
         </div>
-      ))}
-    </div>
-  </>
-    
+      </main>
+      <div className="overflow-auto" id="all-reviews">
+        <div>
+          <h1>Reviews</h1>
+        </div>
+        <hr />
+        {post.reviews
+          .reverse()
+          .map((review, index) => (
+            <div key={index}>
+              <p>
+                {review.userName} | {review.content}
+              </p>
+              <button
+                onClick={() => handleDeleteReview(review._id)}
+                className="delete-button"
+              >
+                ❌
+              </button>
+              <hr />
+            </div>
+          ))}
+      </div>
+    </>
   );
 }
