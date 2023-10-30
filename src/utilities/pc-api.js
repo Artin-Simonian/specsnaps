@@ -21,3 +21,7 @@ export async function getById(postId) {
 export async function createReview(postId, content) {
   return sendRequest(`${BASE_URL}/${postId}/reviews`, "PUT", { content });
 }
+
+export async function deleteReview(postId, reviewId) {
+  return sendRequest(`${BASE_URL}/${postId}/reviews/${reviewId}`, "DELETE");
+}

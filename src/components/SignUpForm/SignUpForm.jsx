@@ -40,7 +40,7 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>Name</label> <br />
             <input
               type="text"
               name="name"
@@ -49,7 +49,7 @@ export default class SignUpForm extends Component {
               required
             />{" "}
             <br />
-            <label>Email</label>
+            <label>Email</label> <br />
             <input
               type="email"
               name="email"
@@ -58,7 +58,7 @@ export default class SignUpForm extends Component {
               required
             />{" "}
             <br />
-            <label>Password</label>
+            <label>Password</label> <br />
             <input
               type="password"
               name="password"
@@ -67,7 +67,7 @@ export default class SignUpForm extends Component {
               required
             />{" "}
             <br />
-            <label>Confirm</label>
+            <label>Retype Password</label> <br />
             <input
               type="password"
               name="confirm"
@@ -75,7 +75,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />{" "}
-            <br />
+            <br /> <br />
             <button type="submit" disabled={disable}>
               SIGN UP
             </button>

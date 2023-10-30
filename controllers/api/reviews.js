@@ -21,7 +21,7 @@ const deleteReview = async (req,res) =>{
 
   post.reviews.remove(req.params.id);
   await post.save();
-  res.redirect(`/posts/${post._id}`)
+  
 }
 
 

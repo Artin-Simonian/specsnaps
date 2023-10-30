@@ -33,6 +33,16 @@ export default function PostDetailPage() {
     setReviewContent("");
   }
 
+  async function handleDeleteReview(reviewId) {
+    try {
+      const updatedPost = await postsApi.deleteReview(postId, reviewId);
+      setPost(updatedPost);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+
   if (!post) return null;
   const reversedReviews = post.reviews.slice().reverse();
   return (
@@ -70,6 +80,12 @@ export default function PostDetailPage() {
       {post.reviews.slice().reverse().map((review, index) => (
         <div key={index}>
           <p>{review.user} | {review.content}</p>
+          <button
+              onClick={() => handleDeleteReview(review._id)}
+              className="delete-button"
+            >
+              ❌
+            </button>
           <hr />
         </div>
       ))}
