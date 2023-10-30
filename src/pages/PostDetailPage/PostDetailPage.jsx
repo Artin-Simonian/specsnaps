@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as postsApi from "../../utilities/pc-api";
 import "./PostDetailPage.css";
+import { getUser } from "../../utilities/users-service";
 
 export default function PostDetailPage() {
   const [post, setPost] = useState(null);
   const [reviewContent, setReviewContent] = useState("");
+  const [user, setUser] = useState(getUser());
   const { postId } = useParams();
 
   useEffect(() => {
@@ -22,9 +24,9 @@ export default function PostDetailPage() {
     fetchPost();
   }, [postId]);
 
-  async function handleCreateReview() {
+  async function handleCreateReview(e) {
+    e.preventDefault();
     try {
-      // IMPORTANT: In the controller, res.json the updated post
       const updatedPost = await postsApi.createReview(postId, reviewContent);
       setPost(updatedPost);
     } catch (error) {
@@ -38,7 +40,8 @@ export default function PostDetailPage() {
       const updatedPost = await postsApi.deleteReview(postId, reviewId);
       setPost(updatedPost);
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
+      
     }
   }
 
@@ -58,18 +61,22 @@ export default function PostDetailPage() {
         </div>
       )}
       <div className="reviewsSection">
-        <form onSubmit={handleCreateReview}>
-          <label htmlFor="review">Leave a Review or a Comment <br />for {post.name}</label>
-          <br />
-          <textarea
-            onChange={(e) => setReviewContent(e.target.value)}
-            value={reviewContent}
-            cols="20"
-            rows="2"
-          ></textarea>
-          <br />
-          <input type="submit" value="Add Review" />
-        </form>
+        {user ? ( 
+          <form onSubmit={handleCreateReview}>
+            <label htmlFor="review">Leave a Review or a Comment <br />for {post.name}</label>
+            <br />
+            <textarea
+              onChange={(e) => setReviewContent(e.target.value)}
+              value={reviewContent}
+              cols="20"
+              rows="2"
+            ></textarea>
+            <br />
+            <input type="submit" value="Add Review" />
+          </form>
+        ) : (
+          <p>Please log in to leave a Review/Comment</p>
+        )}
       </div>
     </main>
     <div className="overflow-auto" id="all-reviews">

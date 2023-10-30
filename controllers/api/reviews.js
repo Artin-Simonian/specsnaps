@@ -6,27 +6,25 @@ const createReview = async (req, res) => {
   post.reviews.push(req.body);
   try {
     await post.save();
-    res.json(post);  // Send back the updated post
+    res.json(post); // Send back the updated post
   } catch {
-    res.status(400).json('Review not created');
+    res.status(400).json("Review not created");
   }
 };
 
-const deleteReview = async (req,res) =>{
-  const post = await Pc.findOne({
+const deleteReview = async (req, res) => {
+  const post = await PC.findOne({
     "reviews._id": req.params.id,
     "reviews.user": req.user._id,
-  })
-  if (!post) return res.redirect('/posts');
+  });
+ 
 
   post.reviews.remove(req.params.id);
   await post.save();
-  
-}
-
-
+  res.json(post)
+};
 
 module.exports = {
   createReview,
-  deleteReview
+  deleteReview,
 };
