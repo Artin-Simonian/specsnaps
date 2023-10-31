@@ -5,11 +5,11 @@ export default function Developer() {
       <div class="container" id="developer">
         <div class="row">
           <div class="col">
-            <img src="https://i.imgur.com/PNmwuJG.png" alt="" />
+            <img src="https://i.imgur.com/mcA990V.png" alt="" />
           </div>
           <div class="col">
             <p>
-              Hello, <br />My name is Artin, Full Stack software engineer located in Los Angeles,
+              Hello, <br />My name is Artin, Full Stack Software Engineer located in Los Angeles,
               Ca <br />
               <div className="icons-links">
                 <a href="https://www.linkedin.com/in/artin-simonian/" target="_blank">
